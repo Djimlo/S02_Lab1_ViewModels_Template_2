@@ -1,4 +1,16 @@
 ﻿<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-10">
+            <h2 class="text-primary">Zombie</h2>
+        </div>
+        <div class="col-2 text-right">
+            <a asp-action="Create" class="btn btn-success">
+                Create New Zombie
+            </a>
+        </div>
+    </div>
+
+
     <div class="row">
         @foreach (var item in this.ViewBag.MaListe)
         {
