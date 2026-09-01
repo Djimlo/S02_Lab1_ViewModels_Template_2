@@ -7,7 +7,7 @@ namespace ZombieParty.Models
     {
         public int Id { get; set; }
         [DisplayName("Type Name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Type Name have to be fill.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} has to be filled")]
         public string TypeName { get; set; }
     }
 }
