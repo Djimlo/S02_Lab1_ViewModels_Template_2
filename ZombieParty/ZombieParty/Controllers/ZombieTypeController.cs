@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ZombieParty.Models;
+using ZombieParty.ViewModels;
 
 namespace ZombieParty.Controllers
 {
@@ -19,8 +20,10 @@ namespace ZombieParty.Controllers
             //    new ZombieType(){TypeName= "Virus", Id=1},
             //    new ZombieType(){TypeName= "Contact", Id=2}
             //};
-            this.ViewBag.MaListe = _baseDonnees.ZombieTypes.ToList();
-            return View();
+            //this.ViewBag.MaListe = _baseDonnees.ZombieTypes.ToList(); // utilisation de vieModel
+
+            List<ZombieType> zombieTypesList = _baseDonnees.ZombieTypes.ToList();
+            return View(zombieTypesList);
         }
 
         //GET CREATE
@@ -28,6 +31,7 @@ namespace ZombieParty.Controllers
         {
             return View();
         }
+
 
         //POST
         [HttpPost]
@@ -44,6 +48,22 @@ namespace ZombieParty.Controllers
 
             return this.View(zombieType);
         }
+
+        // Ajout de l'action GET pour Details
+
+        public IActionResult Details(int id)
+        {
+            ZombieTypeVM zombieTypeVM = new()
+            {
+                ZombieType = new(),
+                ZombiesList = _baseDonnees.Zombies.Where(z => z.ZombieTypeId == id).ToList()
+            };
+            zombieTypeVM.ZombieType = _baseDonnees.ZombieTypes.FirstOrDefault(zt => zt.Id == id);
+            return View(zombieTypeVM);
+        }
+
+
+
 
     }
 }

@@ -1,4 +1,5 @@
-﻿﻿<div class="container p-3">
+﻿@model IEnumerable<ZombieType>
+<div class="container p-3">
     <div class="row pt-4">
         <div class="col-10">
             <h2 class="text-primary">Zombie Type</h2>
@@ -21,10 +22,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in this.ViewBag.MaListe)
+            @foreach (var item in Model) // ce que j'Avais avant la modification : this.ViewBag.MaListe'
             {
                 <tr>
-                    <td width="80%">@item.TypeName</td>
+                    <td width="80%">
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">
+                            @item.TypeName
+                        </a>
+                    </td>
                     <td class="text-center">
                         <div class="w-75 btn-group" role="group">
                             <a class="btn btn-warning mx-2">
