@@ -34,6 +34,16 @@
                                 <li><a class="dropdown-item" asp-controller="ZombieType" asp-action="Index">Manage Zombie Types</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
+                             @*    Ajout du menu déroulant *@
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Armory
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" asp-controller="Weapon" asp-action="Index">Manage weapons</a></li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </li>
 
