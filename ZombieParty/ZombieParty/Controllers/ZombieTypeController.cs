@@ -21,8 +21,6 @@ namespace ZombieParty.Controllers
             //};
             this.ViewBag.MaListe = _baseDonnees.ZombieTypes.ToList();
             return View();
-
-            return View();
         }
 
         //GET CREATE
